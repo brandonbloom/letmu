@@ -1,13 +1,15 @@
 # letmu
 
-A Clojure library designed to ... well, that part is up to you.
+Experimenting with structured graphs.
+
+See "Functional Programming with Structured Graphs" by Oliveira & Cook.
 
 ## Usage
 
-FIXME
+Don't.
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 Brandon Bloom
 
 Distributed under the Eclipse Public License, the same as Clojure.
