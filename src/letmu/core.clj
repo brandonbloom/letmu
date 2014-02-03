@@ -68,15 +68,23 @@
     (Stream. env xs))
   )
 
+(defmacro mu [sym & body]
+  (let [id (gensym sym)]
+    `(let [~sym (SVar. '~id)]
+       (Mu. '~id ~@body))))
+
+;;TODO smart constructors & syntax
+;;TODO "local clearing" for captured environments
+;;TODO pretty printing
 
 (def s0
   (Stream. {} (SCons. 1 snil)))
 
 (def s1
-  (Stream. {} (SCons. 1 (let [v (gensym)] (Mu. v (SCons. 2 (SVar. v)))))))
+  (Stream. {} (SCons. 1 (mu v (SCons. 2 v)))))
 
 (def s2
-  (Stream. {} (let [v (gensym)] (Mu. v (SCons. 1 (SCons. 2 (SVar. v)))))))
+  (Stream. {} (mu v (SCons. 1 (SCons. 2 v)))))
 
 
 (comment
